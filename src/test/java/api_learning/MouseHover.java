@@ -21,7 +21,7 @@ public class MouseHover {
 
         try {
             //Navigate to the hover page
-            driver.get(Urls.BASE_URL.concat(Urls.HOVERS_SLUG));
+            driver.get(Urls.HEROKU_BASE_URL.concat(Urls.HOVERS_SLUG));
 
             //Locate all image elems
             List<WebElement> figuresElem = driver.findElements(figureSel);
