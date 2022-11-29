@@ -11,7 +11,7 @@ public class JsExecutor implements Urls {
 
         try{
             //Navigate to the target page
-            driver.get(BASE_URL.concat(FLOATING_MENUS_SLUG));
+            driver.get(HEROKU_BASE_URL.concat(FLOATING_MENUS_SLUG));
             JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
             PageHelper pageHelper = new PageHelper(jsExecutor);
 
@@ -28,7 +28,7 @@ public class JsExecutor implements Urls {
             Thread.sleep(2000);
 
             //Go to dynamic control page
-            driver.get(BASE_URL.concat(DYNAMIC_CONTROL_SLUG));
+            driver.get(HEROKU_BASE_URL.concat(DYNAMIC_CONTROL_SLUG));
             By checkboxFormSel = By.id("checkbox-example");
             By inputFormSel = By.cssSelector("#input-example");
             WebElement checkboxFornElem = driver.findElement(checkboxFormSel);

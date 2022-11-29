@@ -1,27 +1,28 @@
 package tests;
 
 import driver.DriverFactory;
-import models.pages.LoginPageMod01;
-import models.pages.LoginPageMod02;
+import models.components.LoginFormComponent;
+import models.pages.HerokuLoginPage;
 import org.openqa.selenium.WebDriver;
 import url.Urls;
 
-public class LoginMod02Test implements Urls {
+public class LoginPageTest implements Urls {
+
     public static void main(String[] args) {
         WebDriver driver = DriverFactory.getChromeDriver();
-
         try {
             // Navigate to the target page
             driver.get(HEROKU_BASE_URL.concat(LOGIN_FORM_SLUG));
 
             // Input login creds
-            LoginPageMod02 loginPage = new LoginPageMod02(driver);
-            loginPage.inputUsernameElem("Teo");
-            loginPage.inputPasswordElem("12345678");
-            loginPage.clickOnLoginBtn();
+            HerokuLoginPage loginPage = new HerokuLoginPage(driver);
+            // System.out.println(loginPage.footerComp().getLinkText());
+
+            LoginFormComponent loginFormComp = loginPage.loginFormComp();
+            loginFormComp.usernameElem().sendKeys("teo");
 
             // Debug purpose ONLY
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (Exception e) {
             e.printStackTrace();
         }
